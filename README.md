@@ -1,2 +1,2 @@
 # OptIForest
-code implementation of OptIForest
+Code implementation of OptIForest.
