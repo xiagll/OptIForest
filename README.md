@@ -12,4 +12,4 @@ We evaluate all methods on 20 widely-used benchmark datasets, which are availabl
 # Experiment
 ### You can try different `--alpha` (non-IID data distribution), `--local_ep` (number of local epochs) to see how the attack performance changes. 
 ### An example for running the code:
-    import pandas as pd  
+    python main_fed.py --dataset=Synthetic --  
