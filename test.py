@@ -39,7 +39,7 @@ for i, (dtc_name, dtc) in enumerate(detectors):
     PR_AUC = []
     Traintime = []
     Testtime = []
-    for j in range(10):
+    for j in range(15):
         start_time = time.time()
 
         dtc.fit(X)
