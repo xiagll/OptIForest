@@ -109,8 +109,7 @@ class AngleLSH(OPT):
 		self._dimensions = len(data[0])-1
 
 		self._weights=[]
-		# Both distributions should be ok given that they are symmetric w.r.t. 0.
-                #self._weights.append(np.random.uniform(-1.0, 1.0, self._dimensions))
+
 		self._weights.append(np.random.normal(0.0, 1.0, self._dimensions))
 		for i in range(1, self._default_pool_size):
 			repeated = True
@@ -159,20 +158,17 @@ class HierHash():
 		self.centers = centers
 		self.keys = keys
 		self.sizes = sizes
-		#self.farthest_dises = farthest_dises
 
 	def get_hash_value(self, x):
 		mindis = np.inf
 		for i in range(len(self.centers)):
 			newcenter = (self.centers[i]*self.sizes[i] + x) / (self.sizes[i]+1)
 			dis = (self._distance(x, newcenter) + self._distance(self.centers[i], newcenter) * self.sizes[i]) ##/ (self.sizes[i]+1)
-			##dis = distance.euclidean(x, self.centers[i])
+
 			if dis < mindis:
 				mindis = dis
 				key = self.keys[i]
-		#         index = i
-		# if mindis > self.farthest_dises[index]:
-		#     key = float(mindis)
+
 		return key
 
 	def __str__(self):

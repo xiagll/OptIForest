@@ -1,6 +1,5 @@
 class LSHNode:
 	def __init__(self,center=[],data_size=0,children={},children_count={},hash_func_index=-1,lof=0):
-		# self._data = data
 		self._center = center
 		self._data_size = data_size
 		self._children = children
@@ -10,7 +9,6 @@ class LSHNode:
 
 	def display(self):
 		print(self._hash_func_index)
-		# print self._data
 		print(self._data_size)
 		print(self._children)
 		print(self._children_count)

@@ -20,7 +20,8 @@ class OptIForest(OptForest):
         The number of base estimators in the ensemble.
     granularity : int, optional (default=1)
         This parameter is to control the sensitivity of the algorithm with respect to duplicated or very similar data instances which can lead to only-one-partition case for LSH and are hard to be partitioned. If the value is '1', the model takes the lenghth of single branches of an isolation. Otherwise, the isolation will be 'virtually' compressed by just counting binary/multi-fork branches. 
-            
+    threshold: int, optional (default=403)
+    branch: int, optional (default=0)
 
     Examples
     --------
@@ -31,10 +32,10 @@ class OptIForest(OptForest):
 	>>> array([-0.21098136, -0.23885756, -0.71920724])
     """
 	
-	def __init__(self, lsh_family='L2OPT', num_trees=100, num=403, branch=0, granularity=1):
+	def __init__(self, lsh_family='L2OPT', num_trees=100, threshold=403, branch=0, granularity=1):
 		if lsh_family == 'ALOPT':
-			OptForest.__init__(self, num_trees, VSSampling(num_trees), AngleLSH(), num, branch, distance.cosine, granularity)
+			OptForest.__init__(self, num_trees, VSSampling(num_trees), AngleLSH(), threshold, branch, distance.cosine, granularity)
 		elif lsh_family == 'L1OPT':
-			OptForest.__init__(self, num_trees, VSSampling(num_trees), E2LSH(norm=1), num, branch, distance.cityblock, granularity)
+			OptForest.__init__(self, num_trees, VSSampling(num_trees), E2LSH(norm=1), threshold, branch, distance.cityblock, granularity)
 		else:
-			OptForest.__init__(self, num_trees, VSSampling(num_trees), E2LSH(norm=2), num, branch, distance.euclidean, granularity)
+			OptForest.__init__(self, num_trees, VSSampling(num_trees), E2LSH(norm=2), threshold, branch, distance.euclidean, granularity)

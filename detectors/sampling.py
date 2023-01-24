@@ -16,8 +16,8 @@ class VSSampling(Sampling):
     def __init__(
             self,
             num_samples,
-            lower_bound=2048,
-            upper_bound=2048,
+            lower_bound=512,
+            upper_bound=512,
             vs_type='FIX',
             bootstrap=False,
             bagging=None):

@@ -174,7 +174,6 @@ class HierTree(LSHTree):
 
         # build hierarchical tree
         hirenodes = self.recursive_search_hirenodes(self.num, self._root)  # get all required nodes
-        # print(hirenodes)
         self._root = self.build_hire(hirenodes, self.branch)
 
 
@@ -201,10 +200,6 @@ class HierTree(LSHTree):
         while len(hirenodes) > 1:
             num_of_bin = num_bin
             if (num_of_bin == 0):
-                # probability_sum = 0.0
-                # while probability_sum <= 1:
-                #     probability_sum += np.random.rand()
-                #     num_of_bin += 1
                 number = random.random()
                 if number <= (3 -math.e):
                     num_of_bin = 2
@@ -282,12 +277,9 @@ class HierTree(LSHTree):
         for key in comb_vec:
             datasize = hirenodes[key].get_data_size()
             dist += (self.distance(newcenter, hirenodes[key].get_center()) * datasize)
-        # dist = dist / len_data  ##calculate the weighted loss
         return dist
 
     def index_merged_node(self, hirenodes, num_of_bin):
-        # self._comb = []
-        # self.combine(len(hirenodes), num_of_bin)
         min_dist = math.inf
         closest_part = None
         if num_of_bin == 2:
