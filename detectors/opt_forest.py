@@ -4,13 +4,13 @@ import copy as cp
 from . import opt_tree as Ot
 
 class OptForest:
-	def __init__(self, num_trees, sampler, lsh_family, num, branch, distance, granularity=1):
+	def __init__(self, num_trees, sampler, lsh_family, threshold, branch, distance, granularity=1):
 		self._num_trees = num_trees
 		self._sampler = sampler
 		self._lsh_family = lsh_family
 		self._granularity = granularity
 		self._trees = []
-		self.num = num
+		self.threshold = threshold
 		self.branch = branch
 		self.distance = distance
 
@@ -48,7 +48,7 @@ class OptForest:
 		# Build LSH trees
 		for i in range(self._num_trees):
 			sampled_data = sampled_datas[i]
-			tree = Ot.HierTree(lsh_instances[i],self.num, self.branch, self.distance)
+			tree = Ot.HierTree(lsh_instances[i], self.threshold, self.branch, self.distance)
 			tree.build(sampled_data)
 			self._trees.append(tree)
 
