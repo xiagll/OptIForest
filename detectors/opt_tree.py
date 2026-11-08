@@ -53,7 +53,14 @@ class LSHTree:
             children = {}
             for key in partition.keys():
                 child_data = partition.get(key)
-                children[key] = self._recursive_build(child_data, depth_limit, min(0.0, (children_count[key] -mean) /std), cur_index +1)
+                # Equal-sized partitions have zero variance: their relative
+                # frequency deviation is neutral rather than undefined (0/0).
+                child_lof = 0.0 if std == 0 else min(
+                    0.0, (children_count[key] - mean) / std
+                )
+                children[key] = self._recursive_build(
+                    child_data, depth_limit, child_lof, cur_index + 1
+                )
             return nd.LSHNode(center[1:],len(data),children,children_count,cur_index,lof)
 
     def _split_data(self, data, depth):
@@ -86,7 +93,7 @@ class LSHTree:
             self._recursive_display(children[key], leftStr +' ')
 
     def predict(self, granularity, point):
-        point = self._lsh.format_for_lsh(np.mat(point)).A1
+        point = self._lsh.format_for_lsh(np.asmatrix(point)).A1
         path_length = self._recursive_get_search_depth(
             self._root, 0, granularity, point)
         return pow(2.0, (-1.0 *path_length/self._reference_path_length))

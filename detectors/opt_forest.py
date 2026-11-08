@@ -65,7 +65,7 @@ class OptForest:
 			for j in range(self._num_trees):
 				transformed_data = data[i]
 				if self._sampler._bagging != None:
-					transformed_data = self._sampler._bagging_instances[j].get_transformed_data(np.mat(data[i])).A1
+					transformed_data = self._sampler._bagging_instances[j].get_transformed_data(np.asmatrix(data[i])).A1
 				d_depths.append(self._trees[j].predict(self._granularity, transformed_data))
 			depths.append(d_depths)
 	

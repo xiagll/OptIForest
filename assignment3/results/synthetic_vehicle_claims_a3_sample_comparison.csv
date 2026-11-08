@@ -1,0 +1,7 @@
+dataset,method,run,seed,n_rows,n_anomalies,trees,roc_auc,average_precision,train_seconds,test_seconds
+synthetic_vehicle_claims_a3_sample,OptIForest,1,42,3000,182,100,0.8402771820089066,0.5199028526596864,6.161,30.426
+synthetic_vehicle_claims_a3_sample,IsolationForest,1,42,3000,182,100,0.9664090345424626,0.8602788446972117,0.16,0.026
+synthetic_vehicle_claims_a3_sample,OptIForest,2,43,3000,182,100,0.8498525959491183,0.5121442041462301,6.405,30.745
+synthetic_vehicle_claims_a3_sample,IsolationForest,2,43,3000,182,100,0.9741945421505394,0.8501918860354202,0.164,0.026
+synthetic_vehicle_claims_a3_sample,OptIForest,3,44,3000,182,100,0.8417668208299862,0.49122792517221836,6.228,31.084
+synthetic_vehicle_claims_a3_sample,IsolationForest,3,44,3000,182,100,0.9683412754739936,0.8449996419378863,0.16,0.026

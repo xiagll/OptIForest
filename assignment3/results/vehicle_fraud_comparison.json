@@ -1,0 +1,80 @@
+[
+  {
+    "dataset": "vehicle_fraud",
+    "method": "OptIForest",
+    "run": 1,
+    "seed": 42,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.462541471015298,
+    "average_precision": 0.058526296858907555,
+    "train_seconds": 21.249,
+    "test_seconds": 227.593
+  },
+  {
+    "dataset": "vehicle_fraud",
+    "method": "IsolationForest",
+    "run": 1,
+    "seed": 42,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.5143185376045598,
+    "average_precision": 0.06378271634925077,
+    "train_seconds": 0.228,
+    "test_seconds": 0.067
+  },
+  {
+    "dataset": "vehicle_fraud",
+    "method": "OptIForest",
+    "run": 2,
+    "seed": 43,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.4626251734677275,
+    "average_precision": 0.057324043067453916,
+    "train_seconds": 20.724,
+    "test_seconds": 229.004
+  },
+  {
+    "dataset": "vehicle_fraud",
+    "method": "IsolationForest",
+    "run": 2,
+    "seed": 43,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.47800938528694736,
+    "average_precision": 0.05871289343975902,
+    "train_seconds": 0.191,
+    "test_seconds": 0.065
+  },
+  {
+    "dataset": "vehicle_fraud",
+    "method": "OptIForest",
+    "run": 3,
+    "seed": 44,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.49318867556637974,
+    "average_precision": 0.06178613135295663,
+    "train_seconds": 20.627,
+    "test_seconds": 227.845
+  },
+  {
+    "dataset": "vehicle_fraud",
+    "method": "IsolationForest",
+    "run": 3,
+    "seed": 44,
+    "n_rows": 15420,
+    "n_anomalies": 923,
+    "trees": 100,
+    "roc_auc": 0.4719471604354052,
+    "average_precision": 0.055709816020816025,
+    "train_seconds": 0.195,
+    "test_seconds": 0.069
+  }
+]
