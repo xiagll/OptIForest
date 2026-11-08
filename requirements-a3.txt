@@ -1,0 +1,7 @@
+# Dependencies for COMP8240 Assignment 3 scripts
+# Versions were not recorded from the original Codespaces run.
+# This is a dependency list, not an exact reproducibility lockfile.
+numpy
+pandas
+scipy
+scikit-learn
