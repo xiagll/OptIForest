@@ -53,7 +53,14 @@ class LSHTree:
             children = {}
             for key in partition.keys():
                 child_data = partition.get(key)
-                children[key] = self._recursive_build(child_data, depth_limit, min(0.0, (children_count[key] -mean) /std), cur_index +1)
+                # Equal-sized partitions have zero variance: their relative
+                # frequency deviation is neutral rather than undefined (0/0).
+                child_lof = 0.0 if std == 0 else min(
+                    0.0, (children_count[key] - mean) / std
+                )
+                children[key] = self._recursive_build(
+                    child_data, depth_limit, child_lof, cur_index + 1
+                )
             return nd.LSHNode(center[1:],len(data),children,children_count,cur_index,lof)
 
     def _split_data(self, data, depth):
